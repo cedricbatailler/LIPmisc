@@ -2,8 +2,7 @@
 % Please edit documentation in R/lm_outliers.R
 \name{lm_outliers}
 \alias{lm_outliers}
-\title{Returns a data.frame with a specific model's cook's distance,
- hat values}
+\title{Returns outlier indices}
 \usage{
 lm_outliers(data, formula, id)
 }
@@ -15,12 +14,25 @@ lm_outliers(data, formula, id)
 \item{id}{A column name from \code{data} used to identify observations.}
 }
 \description{
-Returns a data.frame with a specific model's cook's distance,
- hat values
+Returns a \code{data.frame} with a specific \code{lm} model's studentized residuals,
+residuals' cook's distance, and residuals' hat values.
+}
+\examples{
+library(magrittr)
+library(LIPmisc)
+
+mtcars \%T>\%
+  lm_outliers(mpg ~ disp) \%>\%
+  lm(mpg ~ disp,
+     data = .)
+
 }
 \references{
 Judd, C. M., McClelland, G. H., & Ryan, C. S. (2009). Data analysis: a model comparison approach (2nd ed). New York ; Hove: Routledge.
 }
 \author{
 Dominique Muller, \email{dominique.muller@univ-grenoble-alpes.fr}
+
+Cédric Batailler, \email{cedric.batailler@univ-grenoble-alpes.fr}
 }
+\keyword{outliers}

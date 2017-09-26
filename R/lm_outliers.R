@@ -1,14 +1,28 @@
-#' Returns a data.frame with a specific model's studentized residuals,
+#' Returns outlier indices
+#'
+#' Returns a \code{data.frame} with a specific \code{lm} model's studentized residuals,
 #' residuals' cook's distance, and residuals' hat values.
 #'
 #' @param data A data.frame.
 #' @param formula A model formula.
 #' @param id A column name from \code{data} used to identify observations.
 #'
-#' @author Dominique Muller, \email{dominique.muller@@univ-grenoble-alpes.fr}
+#' @examples
+#' library(magrittr)
+#' library(LIPmisc)
 #'
-#' @references Judd, C. M., McClelland, G. H., & Ryan, C. S. (2009). Data analysis: a model comparison approach (2nd ed). New York ; Hove: Routledge.
-
+#' mtcars %T>%
+#'   lm_outliers(mpg ~ disp) %>%
+#'   lm(mpg ~ disp,
+#'      data = .)
+#'
+#' @author Dominique Muller, \email{dominique.muller@@univ-grenoble-alpes.fr}
+#' @author Cédric Batailler, \email{cedric.batailler@@univ-grenoble-alpes.fr}
+#'
+#' @references Judd, C. M., McClelland, G. H., & Ryan, C. S. (2009). Data analysis: a model comparison approach (2nd ed). New York ; Hove: Routledge.
+#'
+#' @keywords outliers
+#'
 #' @import dplyr
 #' @import rlang
 #' @importFrom stats model.frame
