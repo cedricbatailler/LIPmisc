@@ -1,0 +1,15 @@
+Package: LIPmisc
+Type: Package
+Title: LIP-PC2S miscellaneous functions (LIPmisc)
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: Cédric Batailler <cedric.batailler@univ-grenoble-alpes.fr>
+Description: NA
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports:
+  dplyr,
+  rlang,
+  stats
+RoxygenNote: 6.0.1
