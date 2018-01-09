@@ -8,9 +8,10 @@ Description: NA
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
-  dplyr,
-  magrittr,
-  rlang,
-  stats
+Imports: 
+    dplyr,
+    magrittr,
+    rlang,
+    stats,
+    tibble
 RoxygenNote: 6.0.1

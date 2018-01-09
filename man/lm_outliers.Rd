@@ -28,7 +28,7 @@ mtcars \%T>\%
 
 }
 \references{
-Judd, C. M., McClelland, G. H., & Ryan, C. S. (2009). Data analysis: a model comparison approach (2nd ed). New York ; Hove: Routledge.
+Judd, C. M., McClelland, G. H., & Ryan, C. S. (2009). Data analysis: a model comparison approach (2nd ed). New York ; Hove: Routledge.
 }
 \author{
 Dominique Muller, \email{dominique.muller@univ-grenoble-alpes.fr}

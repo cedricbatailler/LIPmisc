@@ -57,6 +57,8 @@ lm_outliers <- function(data, formula, id) {
   data %>%
     select(!!name_id) %>%
     cbind(Out) %>%
-    arrange(desc(cookd)) %>%
-    print()
+    arrange(desc(cookd)) %>% 
+    tibble::as_tibble() %>% 
+    print() 
+  
 }
