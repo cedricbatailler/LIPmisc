@@ -1,11 +1,13 @@
 #' Returns outlier indices
 #'
-#' Returns a \code{data.frame} with a specific \code{lm} model's studentized residuals,
-#' residuals' cook's distance, and residuals' hat values.
+#' Returns a \code{data.frame} with a specific \code{lm} model's studentized
+#' residuals, residuals' cook's distance, and residuals' hat values.
 #'
 #' @param data A data.frame.
 #' @param formula A model formula.
 #' @param id A column name from \code{data} used to identify observations.
+#' @param verbose A boolean indicating wether the function should call print on
+#'   the output. Useful when lm_outliers with pipes.
 #'
 #' @examples
 #' library(magrittr)
@@ -19,7 +21,8 @@
 #' @author Dominique Muller, \email{dominique.muller@@univ-grenoble-alpes.fr}
 #' @author Cédric Batailler, \email{cedric.batailler@@univ-grenoble-alpes.fr}
 #'
-#' @references Judd, C. M., McClelland, G. H., & Ryan, C. S. (2009). Data analysis: a model comparison approach (2nd ed). New York ; Hove: Routledge.
+#' @references Judd, C. M., McClelland, G. H., & Ryan, C. S. (2009). Data
+#'   analysis: a model comparison approach (2nd ed). New York ; Hove: Routledge.
 #'
 #' @keywords outliers
 #'
@@ -33,7 +36,7 @@
 #'
 #' @export
 
-lm_outliers <- function(data, formula, id) {
+lm_outliers <- function(data, formula, id, verbose = TRUE) {
   # Packages check
   if (!requireNamespace("dplyr", quietly = TRUE)) {
     stop("dplyr needed for this function to work. Please install it.",
@@ -54,11 +57,16 @@ lm_outliers <- function(data, formula, id) {
   Out$cookd    <- cooks.distance(fit)
   Out$leverage <- hatvalues(fit)
 
-  data %>%
+  outlier_data <-
+    data %>%
     select(!!name_id) %>%
     cbind(Out) %>%
     arrange(desc(cookd)) %>% 
-    tibble::as_tibble() %>% 
-    print() 
+    tibble::as_tibble() 
+    
+  if(verbose)
+    print(outlier_data)
+  
+  outlier_data
   
 }

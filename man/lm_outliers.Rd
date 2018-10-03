@@ -4,7 +4,7 @@
 \alias{lm_outliers}
 \title{Returns outlier indices}
 \usage{
-lm_outliers(data, formula, id)
+lm_outliers(data, formula, id, verbose = TRUE)
 }
 \arguments{
 \item{data}{A data.frame.}
@@ -12,10 +12,13 @@ lm_outliers(data, formula, id)
 \item{formula}{A model formula.}
 
 \item{id}{A column name from \code{data} used to identify observations.}
+
+\item{verbose}{A boolean indicating wether the function should call print on
+the output. Useful when lm_outliers with pipes.}
 }
 \description{
-Returns a \code{data.frame} with a specific \code{lm} model's studentized residuals,
-residuals' cook's distance, and residuals' hat values.
+Returns a \code{data.frame} with a specific \code{lm} model's studentized
+residuals, residuals' cook's distance, and residuals' hat values.
 }
 \examples{
 library(magrittr)
@@ -28,7 +31,8 @@ mtcars \%T>\%
 
 }
 \references{
-Judd, C. M., McClelland, G. H., & Ryan, C. S. (2009). Data analysis: a model comparison approach (2nd ed). New York ; Hove: Routledge.
+Judd, C. M., McClelland, G. H., & Ryan, C. S. (2009). Data
+  analysis: a model comparison approach (2nd ed). New York ; Hove: Routledge.
 }
 \author{
 Dominique Muller, \email{dominique.muller@univ-grenoble-alpes.fr}
