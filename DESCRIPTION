@@ -13,5 +13,13 @@ Imports:
     magrittr,
     rlang,
     stats,
-    tibble
+    tibble,
+    broom,
+    purrr,
+    JSmediation,
+    car,
+    tidyr,
+    ggplot2,
+    rvg,
+    officer
 RoxygenNote: 6.1.0
